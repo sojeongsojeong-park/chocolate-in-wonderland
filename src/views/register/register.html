@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>회원가입</title>
+
+    <!-- 폰트 어썸: 아이콘 -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/7630448495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 구글 OAuth -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- 카카오 OAuth -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="register.css" />
+    <script src="register.js" type="module" defer></script>
+    <script src="../navigation/navigation.js" type="module"></script>
+    <link rel="stylesheet" href="../navigation/navigation.css" />
+  </head>
+  <body>
+    <nav class="nav"></nav>
+
+    <!-- 회원가입 폼(Form) -->
+    <div class="registerFromContainer">
+      <form class="registerBox" id="registerUserForm">
+        <p class="textInfo">회원가입</p>
+
+        <div class="FormBox">
+          <div class="field">
+            <label class="label" for="fullNameInput">이름</label>
+            <div class="control">
+              <input
+                class="input"
+                id="fullNameInput"
+                type="text"
+                placeholder="예: 유재석"
+                autocomplete="on"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="emailInput">이메일</label>
+            <div class="control">
+              <input
+                class="input"
+                id="emailInput"
+                type="email"
+                placeholder="예: elice@chocolate.com"
+                autocomplete="on"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="passwordInput">비밀번호</label>
+            <div class="control">
+              <input
+                class="input"
+                id="passwordInput"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="passwordConfirmInput"
+              >비밀번호 확인</label
+            >
+            <div class="control">
+              <input
+                class="input"
+                id="passwordConfirmInput"
+                type="password"
+                placeholder="비밀번호를 한번 더 입력해주세요"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button class="registerBtn" id="submitButton">회원가입하기</button>
+        </div>
+      </form>
+    </div>
+    <!-- footer -->
+    <footer>
+      <div class="footerLogo">
+        <div class="logo">
+          <!-- <img src="../imgs/logoImg.png" /> -->
+        </div>
+      </div>
+      <div class="footerContent">
+        <div>
+          <p>주소: 부산시 연제구</p>
+          <p>고객센터 이용약관 개인정보 방침</p>
+          <p>ⓒ 2022 Team02 Enacho.All Rights Reserved.</p>
+        </div>
+      </div>
+      <div class="footerLink">
+        <div class="githubBtn"><a href=""></a></div>
+        <div class="gitlabBtn">
+          <a
+            href="https://kdt-gitlab.elice.io/sw_track/class_02_busan/web_project/team2/shopping-mall"
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

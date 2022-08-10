@@ -1,0 +1,273 @@
+/* Default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+/* 가로 슬라이드 카테고리 메뉴 */
+.categorySlide {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+ul .categoryItems {
+  display: flex;
+  width: 100%;
+}
+
+.category {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 40px;
+  border: 1px solid #f4dfba;
+  border-radius: 100%;
+  width: 90px;
+  height: 90px;
+  background-color: #f4dfba;
+  cursor: pointer;
+}
+
+.category:hover {
+  background-color: #eaac7f;
+}
+
+.selectCategory {
+  background-color: #eaac7f;
+  pointer-events: none;
+}
+
+li a {
+  display: block;
+}
+
+/* 상품 옵션 선택 바 */
+.productOptionBar {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* list */
+.productContainer {
+  padding-top: 90px;
+  padding: 80px 0;
+}
+
+.productList {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(minmax(30%, 1fr));
+  grid-gap: 20px 15px;
+  text-align: center;
+}
+
+.productItem {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(10, 10, 10, 0.1);
+}
+
+.productItem a {
+  color: black;
+  font-size: 17px;
+  text-align: center;
+  display: block;
+}
+
+.productItem:hover {
+  background-color: rgb(245, 236, 220);
+  transition: 0.3s;
+}
+
+.itemImg {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 12px;
+  /* margin: 10px; */
+  border-radius: 10px;
+}
+.itemPrice {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 700px) {
+  .productList {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .itemImg {
+    width: 100%;
+  }
+
+  /* 가로 슬라이드 카테고리 메뉴 */
+  .categorySlide {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* 상품 옵션 선택 바 */
+  .productOptionBar {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* footer */
+footer {
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 50px 0;
+  margin-top: 120px;
+  background-color: #493323;
+}
+
+.footerLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30%;
+  height: 100%;
+}
+
+.logo {
+  background-image: url("../imgs/logoImg.png");
+  background-size: cover;
+  width: 170px;
+  height: 50px;
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 30%;
+}
+
+p {
+  color: #c68b59;
+  padding: 3px;
+  font-size: 14px;
+}
+
+.footerLink {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  width: 40%;
+}
+
+.gitlabBtn {
+  width: 40px;
+  height: 40px;
+  background-image: url("../imgs/gitlabImg.png");
+  background-size: cover;
+  margin-right: 100px;
+}
+
+.gitlabBtn a {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.gitlabBtn:hover {
+  width: 47px;
+  height: 47px;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 800px) {
+  footer {
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    /* margin-top: 100px; */
+    flex-direction: column;
+    background-color: #493323;
+    padding: 20px 0;
+  }
+  .footerLogo {
+    clear: left;
+    width: 100%;
+    margin: 20px 0;
+  }
+  .footerContent {
+    width: 100%;
+    clear: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px 0;
+  }
+  .footerLink {
+    width: 100%;
+    clear: left;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .gitlabBtn {
+    margin-right: 0px;
+  }
+
+  .categorySlide {
+    height: 250px;
+    top: 80px;
+    width: 100%;
+  }
+
+  ul .categoryItems {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .categoryItems li {
+    margin: 3px;
+    width: 77px;
+    height: 77px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .categoryItems li {
+    margin: 17px;
+  }
+}

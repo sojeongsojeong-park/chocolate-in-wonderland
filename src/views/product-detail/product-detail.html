@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>이상한 나라의 초콜릿</title>
+    <!-- 폰트 어썸: 아이콘 -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/7630448495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="product-detail.css" />
+    <script src="product-detail.js" type="module" defer></script>
+    <script src="../navigation/navigation.js" type="module"></script>
+    <link rel="stylesheet" href="../navigation/navigation.css" />
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header class="container">
+      <nav class="nav"></nav>
+      <div class="menu"></div>
+    </header>
+
+    <!-- 메인 -->
+    <main role="main">
+      <div class="productContainer">
+        <img id="chocolate" alt="chocolate1" />
+
+        <div class="detailedInfo">
+          <div id="productDetail">
+            <p id="productName"></p>
+
+            <p id="productSummary"></p>
+            <p id="productDescription"></p>
+            <p class="priceContainer"><span id="price"></span>원</p>
+          </div>
+
+          <div class="buttonGroup">
+            <button id="addCart">장바구니 추가하기</button>
+            <button id="buyDirect">바로 구매하기</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer>
+      <div class="footerLogo">
+        <div class="logo"></div>
+      </div>
+      <div class="footerContent">
+        <div>
+          <div class="footer">주소: 부산시 연제구</div>
+          <div class="footer">고객센터 이용약관 개인정보 방침</div>
+          <div class="footer">ⓒ 2022 Team02 Enacho.All Rights Reserved.</div>
+        </div>
+      </div>
+      <div class="footerLink">
+        <div class="githubBtn"><a href=""></a></div>
+        <div class="gitlabBtn">
+          <a
+            href="https://kdt-gitlab.elice.io/sw_track/class_02_busan/web_project/team2/shopping-mall"
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

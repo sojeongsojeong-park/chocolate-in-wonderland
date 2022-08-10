@@ -1,0 +1,233 @@
+/* common */
+section {
+  padding: 70px 50px 50px 50px;
+}
+label {
+  display: block;
+  width: 5em;
+  height: 25px;
+  line-height: 25px;
+}
+input {
+  width: 250px;
+  height: 25px;
+}
+input:focus {
+  outline: none;
+}
+img {
+  width: 60px;
+  height: 60px;
+  margin: 15px;
+}
+
+/* 장바구니 > 주문결제 > 주문완료 */
+.orderHeader {
+  font-size: 20px;
+  border-bottom: 1px solid #999;
+  margin-bottom: 20px;
+}
+.orderHeader .orderChapter {
+  font-size: 36px;
+  font-weight: bold;
+}
+/* 주문 상품 */
+.shoppingListBox {
+  width: 830px;
+  margin: 30px auto 30px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 1px 1px 10px rgba(10, 10, 10, 0.1);
+}
+#shoppingList {
+  width: 100%;
+}
+.productContainer {
+  width: 700px;
+  margin-left: 50px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  border-bottom: 1px solid #493323;
+}
+.productContainer:last-of-type {
+  border-bottom: none;
+}
+.name {
+  line-height: 60px;
+}
+.price,
+.quantity,
+.totalPrice {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+/* orderMainBox */
+.orderMainBox {
+  display: flex;
+  width: 850px;
+  margin: auto;
+}
+.deliveryBox {
+  width: 500px;
+  height: 320px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(10, 10, 10, 0.1);
+}
+
+.deliveryInfoHeader {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 20px;
+}
+.deliveryInfoContainer {
+  margin-left: 20px;
+}
+.deliveryInfo {
+  display: flex;
+  height: 40px;
+}
+#searchAddressButton {
+  width: 70px;
+  height: 25px;
+  background-color: #91684a;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  position: relative;
+  left: -74px;
+  top: -0.5px;
+}
+#searchAddressButton:hover {
+  background-color: #493323;
+}
+#requestSelectBox {
+  width: 250px;
+  height: 25px;
+}
+
+/* payBox */
+.payBox {
+  width: 300px;
+  border-radius: 10px;
+  background-color: #f4dfba;
+  padding: 10px;
+  margin-left: 40px;
+  box-shadow: 1px 1px 10px rgba(10, 10, 10, 0.1);
+}
+
+.payInfoHeader {
+  width: 100%;
+
+  height: 60px;
+
+  line-height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.payInfo {
+  height: 80px;
+}
+.info {
+  width: 250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.payTotalPricePart {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 10px;
+  border-top: 1px solid black;
+}
+
+#buyButton {
+  width: 250px;
+  height: 60px;
+  margin: 15px 0 0 15px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  line-height: 55px;
+  border-radius: 10px;
+  background-color: #91684a;
+  cursor: pointer;
+  border: none;
+}
+#buyButton:hover {
+  background-color: #493323;
+}
+.deleteIcon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 30px;
+  cursor: pointer;
+}
+#payProductQuantity {
+  overflow: scroll;
+}
+
+.paddingTop {
+  padding-top: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .deliveryBox {
+    width: 80vw;
+    margin: 20px auto;
+  }
+  .orderMainBox {
+    width: 80vw;
+    display: block;
+    margin: auto;
+  }
+  .shoppingListBox {
+    width: 80vw;
+    margin: auto;
+  }
+  .productContainer {
+    width: 70vw;
+    margin: auto;
+  }
+  .payBox {
+    width: 80vw;
+    margin-left: 0px;
+  }
+  .payInfoHeader {
+    width: 80%;
+  }
+  .info {
+    width: 80%;
+    margin: auto;
+  }
+  .payTotalPricePart {
+    width: 80%;
+    margin: auto;
+  }
+  .deliveryInfoContainer {
+    width: 340px;
+    margin: auto;
+  }
+
+  #buyButton {
+    width: 80%;
+    position: relative;
+    left: calc(40vw - 45%);
+  }
+  #searchAddressButton {
+    position: relative;
+    top: -25px;
+    left: 180px;
+  }
+}

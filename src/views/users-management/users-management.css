@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  padding-top: 50px;
+}
+
+.usersContainer {
+  padding-top: 70px;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.smallTitle {
+  font-size: 25px;
+  margin: 20px;
+}
+
+hr {
+  color: lightgrey;
+}
+
+.numberBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+}
+
+.numTitle {
+  padding: 0 160px;
+  text-align: center;
+  font-size: 16px;
+  color: grey;
+}
+
+.num {
+  font-size: 25px;
+  color: black;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 70px;
+  border-collapse: collapse;
+}
+th {
+  background-color: #91684a;
+  color: whitesmoke;
+}
+td,
+tr,
+th {
+  border-bottom: 1px solid rgb(163, 163, 163);
+  padding: 18px;
+  text-align: center;
+}
+
+/* 권한 select */
+select {
+  width: 120px;
+  height: 35px;
+  text-align: center;
+  background-color: #f4dfba;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.deleteBtn {
+  width: 120px;
+  height: 35px;
+  text-align: center;
+  background-color: whitesmoke;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 0.9px solid black;
+}
+
+/* 비밀번호 입력 모달창 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+.modalBox {
+  position: absolute;
+  background-color: white;
+  width: 400px;
+  height: 200px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 100;
+}
+.hidden {
+  display: none;
+}
+.modalBox button {
+  width: 100px;
+  height: 26px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
+  background-color: #91684a;
+  color: whitesmoke;
+}
+.modalTitle {
+  margin: 10px;
+  text-align: center;
+}
+.inputPassword {
+  height: 40px;
+  border-color: lightgray;
+  border-radius: 10px;
+  width: 80%;
+  padding: 10px;
+  margin: 20px;
+}
+
+.delMyInfoBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #91684a;
+  background-color: #91684a;
+  color: whitesmoke;
+  border-radius: 8px;
+  width: 60px;
+  height: 25px;
+}
+
+/* footer */
+footer {
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 50px 0;
+  margin-top: 120px;
+  background-color: #493323;
+}
+
+.footerLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30%;
+  height: 100%;
+}
+
+.logo {
+  background-image: url("../imgs/logoImg.png");
+  background-size: cover;
+  width: 170px;
+  height: 50px;
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 30%;
+}
+
+p {
+  color: #c68b59;
+  padding: 3px;
+  font-size: 14px;
+}
+
+.footerLink {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  width: 40%;
+}
+
+.gitlabBtn {
+  width: 40px;
+  height: 40px;
+  background-image: url("../imgs/gitlabImg.png");
+  background-size: cover;
+  margin-right: 100px;
+}
+
+.gitlabBtn a {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.gitlabBtn:hover {
+  width: 47px;
+  height: 47px;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 800px) {
+  footer {
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    /* margin-top: 100px; */
+    flex-direction: column;
+    background-color: #493323;
+    padding: 20px 0;
+  }
+  .footerLogo {
+    clear: left;
+    width: 100%;
+    margin: 20px 0;
+  }
+  .footerContent {
+    width: 100%;
+    clear: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px 0;
+  }
+  .footerLink {
+    width: 100%;
+    clear: left;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .gitlabBtn {
+    margin-right: 0px;
+  }
+}
