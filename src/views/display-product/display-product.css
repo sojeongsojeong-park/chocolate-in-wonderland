@@ -74,3 +74,15 @@ tr {
   width: 660px;
   padding: 10px 0 0 20px;
 }
+
+#addProduct {
+  width: 150px;
+  height: 50px;
+  background-color: #493323;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  margin-top: 50px;
+  margin-left: 1060px;
+  cursor: pointer;
+}

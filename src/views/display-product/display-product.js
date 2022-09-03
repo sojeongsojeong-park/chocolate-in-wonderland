@@ -76,3 +76,8 @@ function deleteProduct(item) {
     location.reload();
   }
 }
+
+const addProduct = document.querySelector("#addProduct");
+addProduct.addEventListener("click", () => {
+  window.location.href = "/addproduct";
+});
