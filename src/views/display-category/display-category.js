@@ -71,3 +71,8 @@ async function deleteCategory(item) {
     }
   }
 }
+
+const addCategory = document.querySelector("#addCategory");
+addCategory.addEventListener("click", () => {
+  window.location.href = "/addcategory";
+});
