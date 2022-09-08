@@ -189,9 +189,8 @@ const selectedCheckBox = document.querySelectorAll(".selectedCheckBox");
 allSelectedCheckbox.addEventListener("click", selectAll);
 function selectAll() {
   console.log(allSelectedCheckbox);
-  if (allSelectedCheckbox.checked === true) {
+  if (allSelectedCheckbox.checked) {
     selectedCheckBox.forEach((i) => {
-      console.log(i.checked);
       i.checked = true;
     });
     for (let i = 0; i < localStorageItem.length; i++) {
@@ -199,9 +198,8 @@ function selectAll() {
     }
     setPayBox();
   }
-  if (allSelectedCheckbox.checked === false) {
+  if (!allSelectedCheckbox.checked) {
     selectedCheckBox.forEach((i) => {
-      console.log(i.checked);
       i.checked = false;
     });
     totalPriceArrForPay = [];
@@ -212,8 +210,11 @@ function selectAll() {
 
 // 전체말고 선택창
 function individualCheck(e) {
+  const checkedProductBox = document.querySelectorAll(
+    ".selectedCheckBox:checked"
+  );
   const checkedProduct = [];
-  selectedCheckBox.forEach((box) => {
+  checkedProductBox.forEach((box) => {
     if (box.checked) {
       checkedProduct.push(box.parentElement.querySelector(".id").innerText);
     }

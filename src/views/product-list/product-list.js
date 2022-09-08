@@ -114,8 +114,8 @@ getCategoryList();
 // 전체보기
 const allBtn = document.querySelector(".allBtn");
 allBtn.addEventListener("click", () => {
-  const removeCheck = document.querySelector(".selectCategory");
-  removeCheck.classList.remove("selectCategory");
+  //const removeCheck = document.querySelector(".selectCategory");
+  //removeCheck.classList.remove("selectCategory");
   allBtn.classList.add("selectCategory");
   // 기존 목록 없애기
   for (var i = 0; i < cnt; i++) {
