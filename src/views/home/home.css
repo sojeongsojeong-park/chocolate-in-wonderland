@@ -40,13 +40,13 @@ header {
   justify-content: center;
 }
 
-ul .categoryList {
+ul #categoryList {
   display: flex;
   width: 100%;
   margin: 0 auto;
 }
 
-.categoryList li {
+#categoryList li {
   float: left;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@ ul .categoryList {
   cursor: pointer;
 }
 
-.categoryList li:hover {
+#categoryList li:hover {
   background-color: #eaac7f;
 }
 

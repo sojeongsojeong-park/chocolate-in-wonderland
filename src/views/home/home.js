@@ -1,68 +1,38 @@
-// 이미지 슬라이드
-let slideIdx = 1;
-imgSlide(slideIdx);
+import { get } from "/api.js";
 
-function nextSlides(n) {
-  imgSlide((slideIdx += n));
-}
+async function makeLiFunction() {
+  try {
+    const categoryData = await get("/api/categories");
+    const categoryUl = document.querySelector("#categoryList");
 
-function currentSlide(n) {
-  imgSlide((slideIdx = n));
-}
+    const allBtnLi = document.createElement("li");
+    allBtnLi.textContent = "전체보기";
+    allBtnLi.classList.add("allBtn");
+    allBtnLi.addEventListener("click", () => {
+      window.location.href = "/productlist";
+      allBtnLi.classList.add("selectCategory");
+    });
+    categoryUl.appendChild(allBtnLi);
 
-function imgSlide(n) {
-  let i;
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIdx = 1;
+    categoryData.forEach((e) => {
+      const liForCategory = document.createElement("li");
+      liForCategory.textContent = e.name;
+      liForCategory.classList.add(e.name);
+      liForCategory.addEventListener("click", () => {
+        sessionStorage.setItem("category", e.name);
+        liForCategory.classList.add("selectCategory");
+        window.location.href = "/productlist";
+      });
+      categoryUl.appendChild(liForCategory);
+    });
+  } catch (err) {
+    console.error(err.stack);
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
-  if (n < 1) {
-    slideIdx = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIdx - 1].style.display = "block";
-  dots[slideIdx - 1].className += " active";
 }
+makeLiFunction();
 
 const viewMore = document.querySelector(".viewMore");
 viewMore.addEventListener("click", () => {
   window.location.href = "/productlist";
 });
-
-const allBtn = document.querySelector(".allBtn");
-allBtn.addEventListener("click", () => {
-  window.location.href = "/productlist";
-});
-
-const lotte = document.querySelector(".lotte");
-lotte.addEventListener("click", () => {
-  sessionStorage.setItem("category", "Lotte");
-  window.location.href = "/productlist";
-});
-
-const mika = document.querySelector(".milka");
-mika.addEventListener("click", () => {
-  sessionStorage.setItem("category", "Milka");
-  window.location.href = "/productlist";
-});
-
-const godiva = document.querySelector(".godiva");
-godiva.addEventListener("click", () => {
-  sessionStorage.setItem("category", "Godiva");
-  window.location.href = "/productlist";
-});
-
-const guylian = document.querySelector(".guylian");
-guylian.addEventListener("click", () => {
-  sessionStorage.setItem("category", "Guylian");
-  window.location.href = "/productlist";
-});
-
-// 자동 슬라이드 구현
-setInterval("nextSlides(1)", 6000);

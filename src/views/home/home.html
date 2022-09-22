@@ -11,6 +11,7 @@
     ></script>
     <!-- 커스텀 css, js -->
     <script src="recommend.js" type="module" defer></script>
+    <script src="home.js" type="module" defer></script>
     <link rel="stylesheet" href="home.css" />
     <script src="../navigation/navigation.js" type="module"></script>
     <link rel="stylesheet" href="../navigation/navigation.css" />
@@ -24,13 +25,7 @@
     <div class="container">
       <!-- 카테고리 선택 -->
       <div class="categoryBar">
-        <ul class="categoryList">
-          <li class="allBtn">전체보기</li>
-          <li class="lotte">Lotte</li>
-          <li class="milka">Milka</li>
-          <li class="godiva">Godiva</li>
-          <li class="guylian">Guylian</li>
-        </ul>
+        <ul id="categoryList"></ul>
       </div>
 
       <!-- Image Slider -->
@@ -88,7 +83,39 @@
       </div>
     </footer>
 
-    <script src="home.js" type="text/javascript"></script>
-    <script src="home.js" type="module" defer></script>
+    <script>
+      // 이미지 슬라이드
+      let slideIdx = 1;
+      imgSlide(slideIdx);
+
+      function nextSlides(n) {
+        imgSlide((slideIdx += n));
+      }
+
+      function currentSlide(n) {
+        imgSlide((slideIdx = n));
+      }
+
+      function imgSlide(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIdx = 1;
+        }
+        if (n < 1) {
+          slideIdx = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIdx - 1].style.display = "block";
+        dots[slideIdx - 1].className += " active";
+      }
+      setInterval("nextSlides(1)", 6000);
+    </script>
   </body>
 </html>
