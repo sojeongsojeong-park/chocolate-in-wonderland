@@ -74,10 +74,10 @@ addCartBtn.addEventListener("click", async (e) => {
   const isadded = uniqCartList.find((e) => e.id === data._id);
   if (isadded) {
     alertModal.style.display = "block";
-    makingAlertModal("이미 추가된 상품입니다!", `/detail/${productId}`);
+    makingAlertModal("이미 추가된 상품입니다!");
   } else {
     alertModal.style.display = "block";
-    makingAlertModal("장바구니에 추가되었습니다.", `/detail/${productId}`);
+    makingAlertModal("장바구니에 추가되었습니다.");
   }
 
   makeAddCartList();
