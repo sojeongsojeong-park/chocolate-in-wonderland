@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "/api.js";
 
 const path = window.location.pathname.split("/");
@@ -25,7 +26,7 @@ getData();
 const addButton = document.querySelector("#addButton");
 addButton.addEventListener("click", async (e) => {
   e.preventDefault();
-  alert("게시글이 수정되었습니다.");
+
   const title = document.querySelector("#title").value;
   const content = document.querySelector("#content").value;
   const patchData = {
@@ -39,8 +40,9 @@ addButton.addEventListener("click", async (e) => {
       `${postId}`,
       patchData
     );
-    console.log(patching);
   } catch (err) {
     console.error(err.stack);
   }
+  alertModal.style.display = "block";
+  makingAlertModal("게시글이 수정되었습니다.", "/boardlist");
 });

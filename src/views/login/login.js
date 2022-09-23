@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert.js";
 import * as Api from "/api.js";
 import { validateEmail } from "/useful-functions.js";
 
@@ -29,8 +30,10 @@ async function handleSubmit(e) {
   const isPasswordValid = password.length >= 4;
 
   if (!isEmailValid || !isPasswordValid) {
-    return alert(
-      "비밀번호가 4글자 이상인지, 이메일 형태가 맞는지 확인해 주세요."
+    alertModal.style.display = "block";
+    makingAlertModal(
+      `비밀번호가 4글자 이상인지,</br> 이메일 형태가 맞는지 확인해 주세요.`,
+      "/login"
     );
   }
 
@@ -47,14 +50,14 @@ async function handleSubmit(e) {
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("userId", userId);
 
-    alert(`정상적으로 로그인되었습니다.`);
-
-    // 로그인 성공
-
-    // 기본 페이지로 이동
-    window.location.href = "/";
+    alertModal.style.display = "block";
+    makingAlertModal(`정상적으로 로그인되었습니다.`, "/");
   } catch (err) {
     console.error(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+    alertModal.style.display = "block";
+    makingAlertModal(
+      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요.`,
+      "/login"
+    );
   }
 }

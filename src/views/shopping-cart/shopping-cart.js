@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../../alert/alert.js";
 import { addCommas } from "/useful-functions.js";
 
 const displaying = document.querySelector(".shoppingListBox");
@@ -283,8 +284,8 @@ function deletePartFunc() {
   localStorage.clear();
   localStorage.setItem("cartList", JSON.stringify(newStorageItem));
 
-  alert("삭제되었습니다.");
-  window.location.reload();
+  alertModal.style.display = "block";
+  makingAlertModal("삭제되었습니다.", "/cart");
 }
 
 // 결제버튼 클릭시
@@ -292,8 +293,8 @@ const buyButton = document.querySelector("#buyButton");
 buyButton.addEventListener("click", () => {
   const token = sessionStorage.getItem("token");
   if (!token) {
-    alert("상품 구매는 로그인한 유저만 가능합니다.");
-    window.location.href = "/login";
+    alertModal.style.display = "block";
+    makingAlertModal("상품 구매는 로그인한 유저만 가능합니다.", "/login");
     return;
   }
   let setLocalStorage = [];
@@ -306,6 +307,7 @@ buyButton.addEventListener("click", () => {
     localStorage.setItem("cartList", JSON.stringify(setLocalStorage));
     window.location.href = "/order";
   } else {
-    alert("상품수량을 확인하세요");
+    alertModal.style.display = "block";
+    makingAlertModal("상품수량을 확인하세요", "/cart");
   }
 });

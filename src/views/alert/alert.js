@@ -17,7 +17,9 @@ export const makingAlertModal = function (message, redirect) {
   alertButton.addEventListener("click", (e) => {
     e.preventDefault();
     alertModal.style.display = "none";
-    window.location.href = redirect;
+    if (redirect) {
+      window.location.href = redirect;
+    }
   });
 
   alertContainer.appendChild(alertP);

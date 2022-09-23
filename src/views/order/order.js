@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert.js";
 import * as Api from "/api.js";
 import { addCommas } from "/useful-functions.js";
 
@@ -163,11 +164,12 @@ async function doCheckout() {
   const request = document.getElementById("requestSelectBox");
 
   if (!postalCode || !address1) {
-    alert("배송지 정보를 입력해주세요. ");
+    alertModal.style.display = "block";
+    makingAlertModal("배송지 정보를 입력해주세요. ", "/order");
     return;
   }
-
-  alert("결제완료");
+  alertModal.style.display = "block";
+  makingAlertModal("결제완료", "/ordercomplete");
 
   let sendInfo = {
     shipAddress: {
@@ -182,7 +184,6 @@ async function doCheckout() {
     totalPrice: Number(data.orderTotal),
     status: "결제완료",
   };
-  console.log(sendInfo);
 
   try {
     const fff = await Api.post("/api/orders", sendInfo);
@@ -191,6 +192,5 @@ async function doCheckout() {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
-  window.location.href = "../order-complete/order-complete.html";
 }
 button.addEventListener("click", doCheckout);

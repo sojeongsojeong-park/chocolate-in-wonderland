@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "/api.js";
 
 // url에서 productId 받아오기
@@ -19,11 +20,9 @@ async function getData() {
   try {
     // 수정 전 기존 상품데이터 호출
     const pastProduct = await Api.get(`/api/product/${productId}`);
-    console.log(pastProduct);
 
     // 카테고리 목록 호출
     const categories = await Api.get("/api/categories");
-    console.log(categories);
 
     // 폼에 기존값 할당
     inputName.value = pastProduct.name;
@@ -72,7 +71,8 @@ inputFile.addEventListener("input", (e) => {
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  alert("제품 정보가 수정되었습니다.");
+  alertModal.style.display = "block";
+  makingAlertModal("제품 정보가 수정되었습니다.", "/displayproduct");
 
   const formData = new FormData();
 
@@ -109,5 +109,4 @@ form.addEventListener("submit", async (e) => {
   } catch (err) {
     console.error(err.stack);
   }
-  window.location.href = "/displayproduct";
 });

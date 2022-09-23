@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "/api.js";
 
 const fullNameInput = document.querySelector("#fullNameInput");
@@ -84,10 +85,12 @@ async function handleSubmit(e) {
   const isPasswordSame = password === passwordConfirm;
 
   if (!isPasswordValid) {
-    return alert("비밀번호는 4글자 이상이어야 합니다.");
+    alertModal.style.display = "block";
+    makingAlertModal("비밀번호는 4글자 이상이어야 합니다.", "/mypage");
   }
   if (!isPasswordSame) {
-    return alert("비밀번호가 일치하지 않습니다.");
+    alertModal.style.display = "block";
+    makingAlertModal("비밀번호가 일치하지 않습니다.", "/mypage");
   }
 
   try {
@@ -104,7 +107,8 @@ async function handleSubmit(e) {
 
     await Api.patch("/api/users/", getUserId, data);
 
-    alert("정보가 수정되었습니다. ");
+    alertModal.style.display = "block";
+    makingAlertModal("정보가 수정되었습니다. ", "/");
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);

@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "/api.js";
 import { getCurrentDate } from "/useful-functions.js";
 
@@ -121,7 +122,8 @@ async function buttonEvent() {
   // 삭제 확인 버튼
   deleteCompleteButton.addEventListener("click", (e) => {
     e.preventDefault();
-    alert("주문정보가 삭제되었습니다");
+    alertModal.style.display = "block";
+    makingAlertModal("주문정보가 삭제되었습니다");
 
     //  **********주문을 취소 했으니 서버에 주문취소 알리기**********
 
