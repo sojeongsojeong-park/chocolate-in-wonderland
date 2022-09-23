@@ -165,7 +165,7 @@ async function doCheckout() {
 
   if (!postalCode || !address1) {
     alertModal.style.display = "block";
-    makingAlertModal("배송지 정보를 입력해주세요. ", "/order");
+    makingAlertModal("배송지 정보를 입력해주세요. ");
     return;
   }
   alertModal.style.display = "block";
@@ -187,7 +187,6 @@ async function doCheckout() {
 
   try {
     const fff = await Api.post("/api/orders", sendInfo);
-    console.log(fff);
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);

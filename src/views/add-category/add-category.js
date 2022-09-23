@@ -1,4 +1,4 @@
-import { makingAlertModal } from "../alert/alert.js";
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "../api.js";
 
 const addButton = document.querySelector("#addButton");
@@ -20,10 +20,6 @@ addButton.addEventListener("click", async (e) => {
     makingAlertModal("제품 정보가 저장되었습니다.", "/displaycategory");
   } catch (err) {
     console.error(err.stack);
-    alertModal.style.display = "block";
-    makingAlertModal(
-      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
-      "/displaycategory"
-    );
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 });

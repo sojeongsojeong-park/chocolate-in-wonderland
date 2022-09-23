@@ -86,11 +86,11 @@ async function handleSubmit(e) {
 
   if (!isPasswordValid) {
     alertModal.style.display = "block";
-    makingAlertModal("비밀번호는 4글자 이상이어야 합니다.", "/mypage");
+    makingAlertModal("비밀번호는 4글자 이상이어야 합니다.");
   }
   if (!isPasswordSame) {
     alertModal.style.display = "block";
-    makingAlertModal("비밀번호가 일치하지 않습니다.", "/mypage");
+    makingAlertModal("비밀번호가 일치하지 않습니다.");
   }
 
   try {
@@ -108,7 +108,7 @@ async function handleSubmit(e) {
     await Api.patch("/api/users/", getUserId, data);
 
     alertModal.style.display = "block";
-    makingAlertModal("정보가 수정되었습니다. ", "/");
+    makingAlertModal("정보가 수정되었습니다. ");
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);

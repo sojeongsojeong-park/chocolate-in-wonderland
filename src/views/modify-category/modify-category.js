@@ -1,4 +1,4 @@
-import { makingAlertModal } from "../alert/alert.js";
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "/api.js";
 
 const path = window.location.pathname.split("/");
@@ -23,8 +23,7 @@ getData();
 const addButton = document.querySelector("#addButton");
 addButton.addEventListener("click", async (e) => {
   e.preventDefault();
-  alertModal.style.display = "block";
-  makingAlertModal("카테고리가 수정되었습니다.", "/displaycategory");
+
   const name = document.querySelector("#categoryName").value;
   const info = document.querySelector("#descrption").value;
   const patchData = {
@@ -42,5 +41,6 @@ addButton.addEventListener("click", async (e) => {
   } catch (err) {
     console.error(err.stack);
   }
-  window.location.href = "/displaycategory";
+  alertModal.style.display = "block";
+  makingAlertModal("카테고리가 수정되었습니다.", "/displaycategory");
 });

@@ -35,9 +35,6 @@ addButton.addEventListener("click", async (e) => {
     makingAlertModal("글이 등록되었습니다.", "/boardlist");
   } catch (err) {
     console.error(err.stack);
-    alertModal.style.display = "block";
-    makingAlertModal(
-      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`
-    );
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 });

@@ -4,7 +4,6 @@ import * as Api from "/api.js";
 // url에서 productId 받아오기
 const path = window.location.pathname.split("/");
 const productId = path[path.length - 2];
-console.log(productId);
 
 // html 요소 선택
 const inputName = document.querySelector("#name");
@@ -71,8 +70,6 @@ inputFile.addEventListener("input", (e) => {
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  alertModal.style.display = "block";
-  makingAlertModal("제품 정보가 수정되었습니다.", "/displayproduct");
 
   const formData = new FormData();
 
@@ -109,4 +106,6 @@ form.addEventListener("submit", async (e) => {
   } catch (err) {
     console.error(err.stack);
   }
+  alertModal.style.display = "block";
+  makingAlertModal("제품 정보가 수정되었습니다.", "/displayproduct");
 });
