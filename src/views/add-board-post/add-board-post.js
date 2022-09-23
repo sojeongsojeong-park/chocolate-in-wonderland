@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../../alert/alert.js";
 import * as Api from "/api.js";
 
 const userId = sessionStorage.getItem("userId");
@@ -15,12 +16,13 @@ getData();
 
 const addButton = document.querySelector("#addButton");
 addButton.addEventListener("click", async (e) => {
-  alert("글이 등록되었습니다.");
+  e.preventDefault();
+  alertModal.style.display = "block";
+
   //데이터 백으로 넘기는 작업
   let title = document.querySelector("#title").value;
   let author = userId;
   let content = document.querySelector("#content").value;
-  console.log(title, author, content);
 
   let data = {
     title,
@@ -30,11 +32,12 @@ addButton.addEventListener("click", async (e) => {
 
   try {
     const sendData = await Api.post("/boards/notice/post", data);
-    console.log(sendData);
-
-    window.location.href = "/boardlist";
+    makingAlertModal("글이 등록되었습니다.", "/boardlist");
   } catch (err) {
     console.error(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+    alertModal.style.display = "block";
+    makingAlertModal(
+      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`
+    );
   }
 });

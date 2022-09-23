@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 
 const selectCategory = document.querySelector("#category");
@@ -31,8 +32,6 @@ fileInput.addEventListener("input", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  alert("제품 정보가 저장되었습니다.");
-
   const formData = new FormData();
 
   //데이터 만들기
@@ -60,6 +59,8 @@ form.addEventListener("submit", (e) => {
   }
   Api.postImg("/api/product", formData);
 
+  alertModal.style.display = "block";
+  makingAlertModal("제품 정보가 저장되었습니다.", "/displayproduct");
+
   form.reset();
-  window.location.href = `/displayproduct`;
 });

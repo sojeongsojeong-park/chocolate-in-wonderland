@@ -105,7 +105,7 @@ buyDirect.addEventListener("click", async () => {
   const token = sessionStorage.getItem("token");
   if (!token) {
     alertModal.style.display = "block";
-    makingAlertModal("상품 구매는 로그인한 유저만 가능합니다.");
+    makingAlertModal("상품 구매는 로그인한 유저만 가능합니다.", "/login");
     return;
   }
 

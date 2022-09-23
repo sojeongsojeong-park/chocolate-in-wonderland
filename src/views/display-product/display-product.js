@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 import { addCommas } from "/useful-functions.js";
 
@@ -72,8 +73,8 @@ function deleteProduct(item) {
   const isOk = confirm("정말로 삭제 하시겠습니까?");
   if (isOk) {
     const deleteThis = Api.delete(`/api/products/${thisId}`);
-    alert("삭제되었습니다.");
-    location.reload();
+    alertModal.style.display = "block";
+    makingAlertModal("삭제되었습니다.", "/displayproduct");
   }
 }
 

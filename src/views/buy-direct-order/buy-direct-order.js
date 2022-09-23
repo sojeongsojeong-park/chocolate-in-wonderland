@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert";
 import * as Api from "/api.js";
 import { addCommas } from "/useful-functions.js";
 
@@ -149,10 +150,12 @@ async function doCheckout() {
 
   try {
     const fff = await Api.post("/api/orders", sendInfo);
-    alert("결제완료");
+    alertModal.style.display = "block";
+    makingAlertModal("결제완료");
   } catch (err) {
     console.error(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+    alertModal.style.display = "block";
+    makingAlertModal(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
   window.location.href = "../order-complete/order-complete.html";
 }

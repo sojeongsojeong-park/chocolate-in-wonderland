@@ -1,6 +1,6 @@
 const alertModal = document.querySelector("#alertModal");
 
-export const makingAlertModal = function (message) {
+export const makingAlertModal = function (message, redirect) {
   const alertContainer = document.createElement("div");
   alertContainer.classList.add("alertModalContainer");
 
@@ -17,7 +17,7 @@ export const makingAlertModal = function (message) {
   alertButton.addEventListener("click", (e) => {
     e.preventDefault();
     alertModal.style.display = "none";
-    window.location.href = "/login";
+    window.location.href = redirect;
   });
 
   alertContainer.appendChild(alertP);

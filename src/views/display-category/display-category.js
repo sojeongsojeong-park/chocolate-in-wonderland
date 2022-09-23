@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 
 const tbody = document.querySelector(".tableBody");
@@ -47,13 +48,14 @@ async function deleteCategory(item) {
   const thisId = item.path[0].parentElement.childNodes[0].value;
 
   const allProducts = await Api.get(`/api/products`);
-  // console.log(allProducts);
 
   let needDelete = 0;
   allProducts.forEach((element) => {
     if (element.category._id == thisId) {
-      alert(
-        "카테고리가 지정된 상품이 있습니다. 해당 상품을 모두 삭제 후 요청 하십시오."
+      alertModal.style.display = "block";
+      makingAlertModal(
+        "카테고리가 지정된 상품이 있습니다. 해당 상품을 모두 삭제 후 요청 하십시오.",
+        "/displaycategory"
       );
       needDelete += 1;
       return;
@@ -64,7 +66,8 @@ async function deleteCategory(item) {
     const isOk = confirm("정말로 삭제 하시겠습니까?");
     if (isOk) {
       const deleteThis = Api.delete(`/api/categories/${thisId}`);
-      alert("삭제되었습니다.");
+      alertModal.style.display = "block";
+      makingAlertModal("삭제되었습니다.", "/displaycategory");
       location.reload();
     } else {
       return;

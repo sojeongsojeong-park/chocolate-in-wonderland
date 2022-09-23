@@ -23,10 +23,12 @@ button {
   width: 55px;
   height: 35px;
   background-color: #91684a;
+  font-weight: normal;
   color: white;
   border: none;
   border-radius: 10px;
   margin: 10px;
+  cursor: pointer;
 }
 tr {
   height: 50px;
@@ -37,9 +39,13 @@ tr {
   width: 100%;
   display: flex;
   padding: 30px;
-  justify-content: center;
+  justify-content: right;
 }
-
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 /* custom */
 #headRow {
   width: 100%;

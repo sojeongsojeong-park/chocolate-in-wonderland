@@ -1,4 +1,5 @@
 import { get } from "/api.js";
+import { makingAlertModal } from "../../alert/alert.js";
 
 async function makeLiFunction() {
   try {
@@ -27,7 +28,11 @@ async function makeLiFunction() {
     });
   } catch (err) {
     console.error(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+    alertModal.style.display = "block";
+    makingAlertModal(
+      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
+      "/"
+    );
   }
 }
 makeLiFunction();

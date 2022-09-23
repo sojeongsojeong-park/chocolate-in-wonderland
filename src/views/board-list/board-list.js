@@ -1,3 +1,4 @@
+import { makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 import * as usefulFunc from "../useful-functions.js";
 
@@ -42,6 +43,11 @@ async function getData() {
       deleteBtn.setAttribute("id", `deleteBtn${i}`);
       deleteBtn.addEventListener("click", (e) => delPost(posts[i]._id));
 
+      const buttonContainer = document.createElement("div");
+      buttonContainer.classList.add("buttonContainer");
+      buttonContainer.appendChild(modifyBtn);
+      buttonContainer.appendChild(deleteBtn);
+
       // 상세에 넘겨줄 게시글 하나의 id값
       // title.value = posts[i]._id;
 
@@ -49,8 +55,7 @@ async function getData() {
       tr.appendChild(title);
       tr.appendChild(author);
       tr.appendChild(content);
-      content.appendChild(modifyBtn);
-      content.appendChild(deleteBtn);
+      content.appendChild(buttonContainer);
       tbody.insertBefore(tr, tbody.firstChild);
 
       // 세션 유저와 글쓴유저가 같으면 수정/삭제버튼이 보인다.
@@ -72,8 +77,8 @@ getData();
 
 function writing(item) {
   if (!userId) {
-    alert("글쓰기는 로그인한 유저만 가능합니다.");
-    window.location.href = "/login";
+    alertModal.style.display = "block";
+    makingAlertModal("글쓰기는 로그인한 유저만 가능합니다.", "/login");
     return;
   }
   window.location.href = `/boardlist/write`;
@@ -107,7 +112,11 @@ async function managerAccount() {
     }
   } catch (err) {
     console.error(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+    alertModal.style.display = "block";
+    makingAlertModal(
+      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
+      "/boardlist"
+    );
   }
 }
 
