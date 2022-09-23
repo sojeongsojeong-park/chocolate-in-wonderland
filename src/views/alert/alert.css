@@ -41,10 +41,27 @@ button {
 }
 .alertButton {
   background-color: #f4dfba;
-  position: absolute;
-  top: 200px;
-  left: calc(50vw - 386px);
+  margin: 50px 0 0 146px;
 }
+
 .alertButton:hover {
   background-color: #ffdf91;
+}
+
+.alertButtonContainer {
+  display: flex;
+  margin: 48px 0 0 30px;
+}
+.confirmButtonForConfirm {
+  background-color: #f4dfba;
+}
+.confirmButtonForConfirm:hover {
+  background-color: #ffdf91;
+}
+.cancelButtonForConfirm {
+  color: #fff;
+  background-color: #91684a;
+}
+.cancelButtonForConfirm:hover {
+  background-color: #493323;
 }
