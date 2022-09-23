@@ -1,5 +1,6 @@
 import * as Api from "/api.js";
 import { addCommas } from "/useful-functions.js";
+import { makingAlertModal } from "../../alert/alert.js";
 
 const addCartBtn = document.querySelector("#addCart");
 const productName = document.querySelector("#productName");
@@ -103,8 +104,9 @@ const buyDirect = document.querySelector("#buyDirect");
 buyDirect.addEventListener("click", async () => {
   const token = sessionStorage.getItem("token");
   if (!token) {
-    alert("상품 구매는 로그인한 유저만 가능합니다.");
-    window.location.href = "/login";
+    alertModal.style.display = "block";
+    makingAlertModal("상품 구매는 로그인한 유저만 가능합니다.");
+    return;
   }
 
   const data = await Api.get(`/api/product/${productId}`);
