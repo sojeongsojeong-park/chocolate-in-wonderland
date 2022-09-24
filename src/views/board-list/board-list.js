@@ -1,4 +1,4 @@
-import { makingAlertModal } from "../alert/alert.js";
+import { confirmModal, makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 import * as usefulFunc from "../useful-functions.js";
 
@@ -90,11 +90,15 @@ function modiPost(postId) {
 
 async function delPost(postId) {
   try {
-    const deleteThis = await Api.delete(`/boards/notice/post/${postId}`);
+    const deleteThis = () => {
+      Api.delete(`/boards/notice/post/${postId}`);
+      alertModal.style.display = "block";
+      makingAlertModal("삭제되었습니다.", "/boardlist");
+    };
+    confirmModal("정말로 삭제하시겠어요?", deleteThis);
   } catch (err) {
     console.error(err.stack);
   }
-  location.reload();
 }
 
 // 관리자 계정으로 로그인
@@ -112,11 +116,7 @@ async function managerAccount() {
     }
   } catch (err) {
     console.error(err.stack);
-    alertModal.style.display = "block";
-    makingAlertModal(
-      `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
-      "/boardlist"
-    );
+    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 }
 

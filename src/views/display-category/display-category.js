@@ -1,4 +1,4 @@
-import { makingAlertModal } from "../alert/alert.js";
+import { confirmModal, makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 
 const tbody = document.querySelector(".tableBody");
@@ -63,15 +63,12 @@ async function deleteCategory(item) {
   });
 
   if (needDelete == 0) {
-    const isOk = confirm("정말로 삭제 하시겠습니까?");
-    if (isOk) {
+    const deleteFunc = () => {
       const deleteThis = Api.delete(`/api/categories/${thisId}`);
       alertModal.style.display = "block";
       makingAlertModal("삭제되었습니다.", "/displaycategory");
-      location.reload();
-    } else {
-      return;
-    }
+    };
+    confirmModal("정말로 삭제하시겠습니까?", deleteFunc);
   }
 }
 

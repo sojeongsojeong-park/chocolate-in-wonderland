@@ -1,4 +1,4 @@
-import { makingAlertModal } from "../../alert/alert.js";
+import { makingAlertModal, confirmModal } from "../../alert/alert.js";
 import { addCommas } from "/useful-functions.js";
 
 const displaying = document.querySelector(".shoppingListBox");
@@ -256,11 +256,16 @@ function deleteData(item) {
   const targetid = item.path[2].querySelector(".id").innerText;
 
   let newStorageItem;
-  const findNotDelete = localStorageItem.filter((e) => e.id !== targetid);
-  newStorageItem = findNotDelete;
-  localStorage.clear();
-  localStorage.setItem("cartList", JSON.stringify(newStorageItem));
-  location.reload();
+  const deleteFunc = () => {
+    const findNotDelete = localStorageItem.filter((e) => e.id !== targetid);
+    newStorageItem = findNotDelete;
+    localStorage.clear();
+    localStorage.setItem("cartList", JSON.stringify(newStorageItem));
+
+    alertModal.style.display = "block";
+    makingAlertModal("삭제되었습니다.", "/cart");
+  };
+  confirmModal("정말 삭제하시겠습니까?", deleteFunc);
 }
 
 //선택 삭제 클릭하면 선택된 항목 삭제
@@ -270,22 +275,28 @@ deletePart.addEventListener("click", deletePartFunc);
 
 function deletePartFunc() {
   const deleteChecked = document.querySelectorAll(".selectedCheckBox");
+
   // 체크가 되어있는 id값
-  let newStorageItem = localStorageItem;
-  for (let i = 0; i < deleteChecked.length; i++) {
-    if (deleteChecked[i].checked == true) {
-      newStorageItem = newStorageItem.filter(
-        (e) =>
-          e.id !== deleteChecked[i].parentNode.querySelector(".id").innerText
-      );
+
+  const deleteCallBack = () => {
+    let newStorageItem = localStorageItem;
+    for (let i = 0; i < deleteChecked.length; i++) {
+      if (deleteChecked[i].checked == true) {
+        newStorageItem = newStorageItem.filter(
+          (e) =>
+            e.id !== deleteChecked[i].parentNode.querySelector(".id").innerText
+        );
+      }
     }
-  }
 
-  localStorage.clear();
-  localStorage.setItem("cartList", JSON.stringify(newStorageItem));
+    localStorage.clear();
+    localStorage.setItem("cartList", JSON.stringify(newStorageItem));
 
-  alertModal.style.display = "block";
-  makingAlertModal("삭제되었습니다.", "/cart");
+    alertModal.style.display = "block";
+    makingAlertModal("삭제되었습니다.", "/cart");
+  };
+
+  confirmModal("정말 삭제하시겠습니까?", deleteCallBack);
 }
 
 // 결제버튼 클릭시

@@ -1,4 +1,4 @@
-import { makingAlertModal } from "../alert/alert.js";
+import { confirmModal, makingAlertModal } from "../alert/alert.js";
 import * as Api from "../api.js";
 import { addCommas } from "/useful-functions.js";
 
@@ -70,12 +70,14 @@ function modifying(productId) {
 }
 function deleteProduct(item) {
   const thisId = item.path[0].parentElement.childNodes[0].value;
-  const isOk = confirm("정말로 삭제 하시겠습니까?");
-  if (isOk) {
+
+  const deleteFunc = () => {
     const deleteThis = Api.delete(`/api/products/${thisId}`);
     alertModal.style.display = "block";
     makingAlertModal("삭제되었습니다.", "/displayproduct");
-  }
+  };
+
+  confirmModal("정말로 삭제하시겠습니까?", deleteFunc);
 }
 
 const addProduct = document.querySelector("#addProduct");
