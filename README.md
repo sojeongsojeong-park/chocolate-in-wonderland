@@ -1,8 +1,12 @@
 # 이상한 나라의 초콜릿 프로젝트
 
 초콜릿제품을 전문적으로 판매하는 쇼핑몰을 구현였습니다. 2022.5.30 ~ 2022.6.10<br />
+>DEMO VIDEO     
+🎬 https://youtu.be/Uwlh-8LKExw
 
 #### 🔗 http://kdt-sw2-busan-team02.elicecoding.com/
+
+
 
 ## 🍫structure chart
 
@@ -10,9 +14,12 @@
 <br />
 
 ## 🙋‍♀️ 담당 부분
+
 1. 상품 상세 페이지
 2. 장바구니 페이지
+
 - localStorage를 활용하여 전체선택, 선택삭제, 수량 증감 기능 구현
+
 3. 관리자 모드의 상품 및 카테고리 추가 ・ 수정 ・ 삭제 기능 구현
 
 ## 🍪 Tech stacks & Tools
